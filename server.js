@@ -1,13 +1,14 @@
 const express = require('express')
-const mysql = require('mysql2')
 const app = express()
 const cors = require('cors')
-const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
 const config = require('./utils/config')
+const { pool} = require('./db')
+
 require('dotenv').config()
 
 // const config = require('./utils/config')
+
 
 
 
@@ -21,22 +22,23 @@ app.use(cors(
     }
 ))
 
+// const executeQuery = async () => {
 
-connectDb()
+// try {
+//     const [results] = await pool.execute('SELECT * FROM `acc_project`.`auth_data`');
+//     console.log(results);
+// } catch (error) {
+//     console.error(error);
+//     // Handle the error here, e.g., send an error response to the client
+// }
+// }
 
+// executeQuery()
 
 
 app.use('/auth', authRouter)
 
-// conn.query('SELECT * FROM `acc_project`.`auth_data`', (err, results) => {
-//     if (err) {
-//         console.error(err);
-//         // Handle the error here, e.g., send an error response to the client
-//     } else {
-//         // Handle the query results here, e.g., send the results to the client
-//         console.log(results);
-//     }
-// });
+
 
 
 

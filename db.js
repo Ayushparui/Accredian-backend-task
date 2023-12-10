@@ -1,27 +1,23 @@
-const mysql = require('mysql2')
+const mysql = require('mysql2/promise')
 const config = require('./utils/config')
 
 
-const conn = mysql.createConnection({
+const pool = mysql.createPool({
     host: config.HOST,
     user: config.USER,
-    port: config.PORT,
-    password: config.PASSWORD,
     database: config.DATABASE,
-    connectTimeout: 60000
+    password: config.PASSWORD,
+    port: config.DB_PORT,
+    waitForConnections: true,
+    connectionLimit: 10,
+    maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
+    idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0
 });
 
-const connectDb = async () => {
-    try {
-        await conn.connect();
-        console.log('Connected to MySQL Server!');
-    } catch (err) {
-        console.error('Error connecting to MySQL Server!');
-        console.error(err);
-    }
-};
 
 module.exports = {
-    connectDb,
-    conn
+    pool
 }
