@@ -3,7 +3,7 @@ require('dotenv').config()
 const config = module.exports = {
     HOST : process.env.HOST,
     USER : process.env.USER,
-    PORT : process.env.PORT,
+    DB_PORT : process.env.DB_PORT,
     PASSWORD : process.env.PASSWORD,
     DATABASE : process.env.DATABASE,
     ORIGIN: process.env.ORIGIN,
