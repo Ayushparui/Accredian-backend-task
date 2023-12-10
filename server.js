@@ -5,7 +5,7 @@ const cors = require('cors')
 const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
 const config = require('./utils/config')
-const PORT = "https://accredian-backend-lnqn.onrender.com"
+const PORT = config.BASE_URL
 // const config = require('./utils/config')
 
 app.use(express.json())
