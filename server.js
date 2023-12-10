@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors(
     {
-        origin: 'https://accredian-frontend-task-aqqc4hcjd-ayushparui.vercel.app',
+        origin: 'https://accredian-frontend-task-ivory.vercel.app',
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true
     }
