@@ -5,8 +5,11 @@ const cors = require('cors')
 const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
 const config = require('./utils/config')
-const PORT = config.BASE_URL
+require('dotenv').config()
+const PORT = process.env.BASE_URL || 3001
 // const config = require('./utils/config')
+
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -41,5 +44,5 @@ app.use('/auth', authRouter)
 
 
 app.listen(PORT, () => {
-    console.log('Server is running on port 3000')
+    console.log(`Server running on port ${PORT}`)
 })
