@@ -6,7 +6,7 @@ const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
 const config = require('./utils/config')
 require('dotenv').config()
-const PORT = process.env.BASE_URL || 3001
+
 // const config = require('./utils/config')
 
 
@@ -40,7 +40,7 @@ app.use('/auth', authRouter)
 
 
 
-
+const PORT = 5000
 
 
 app.listen(PORT, () => {
