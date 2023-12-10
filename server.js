@@ -4,6 +4,7 @@ const app = express()
 const cors = require('cors')
 const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
+const PORT = process.env.PORT || 3000
 // const config = require('./utils/config')
 
 app.use(express.json())
@@ -38,6 +39,6 @@ app.use('/auth', authRouter)
 
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server is running on port 3000')
 })
