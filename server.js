@@ -4,7 +4,8 @@ const app = express()
 const cors = require('cors')
 const { connectDb, conn } = require('./db')
 const authRouter = require('./routes/authentication')
-const PORT = process.env.PORT || 3000
+const config = require('./utils/config')
+const PORT = config.BASE_URL
 // const config = require('./utils/config')
 
 app.use(express.json())

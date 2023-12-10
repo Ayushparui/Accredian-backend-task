@@ -6,5 +6,6 @@ const config = module.exports = {
     PORT : process.env.PORT,
     PASSWORD : process.env.PASSWORD,
     DATABASE : process.env.DATABASE,
-    ORIGIN: process.env.ORIGIN
+    ORIGIN: process.env.ORIGIN,
+    BASE_URL: process.env.BASE_URL 
 }
